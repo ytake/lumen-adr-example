@@ -36,16 +36,19 @@ class ActiveUserSpecification implements SpecificationInterface, CriteriaBuilder
     /**
      * @param UserRepositoryInterface $repository
      *
-     * @return \Generator
+     * @return array
      */
-    public function satisfyingSpecification(UserRepositoryInterface $repository): \Generator
+    public function satisfyingSpecification(UserRepositoryInterface $repository): array
     {
+        $entity = [];
         $result = $repository->queryAll($this->criteria->all());
         foreach ($result as $user) {
             if ($this->isSatisfiedBy($user)) {
-                yield $user;
+                $entity[] = $user;
             }
         }
+
+        return $entity;
     }
 
     /**

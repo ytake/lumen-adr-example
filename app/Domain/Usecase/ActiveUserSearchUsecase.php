@@ -28,9 +28,9 @@ class ActiveUserSearchUsecase implements UsecaseInterface
     /**
      * @param EntityInterface $entity
      *
-     * @return \Generator
+     * @return array
      */
-    public function run(EntityInterface $entity): \Generator
+    public function run(EntityInterface $entity): array
     {
         return $this->repository->findAll($entity);
     }

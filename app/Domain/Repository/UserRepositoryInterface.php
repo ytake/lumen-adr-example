@@ -13,9 +13,9 @@ interface UserRepositoryInterface
     /**
      * @param ActiveUserSpecification $specification
      *
-     * @return \Generator
+     * @return array
      */
-    public function findAll(ActiveUserSpecification $specification): \Generator;
+    public function findAll(ActiveUserSpecification $specification): array;
 
     /**
      * @param array $attributes
