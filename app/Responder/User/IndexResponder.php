@@ -14,13 +14,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class IndexResponder
 {
     /**
-     * @param array $attribute
+     * @param \Generator $generator
      *
      * @return Response
      */
-    public function emit(array $attribute): Response
+    public function emit(\Generator $generator): Response
     {
         $data = [];
+        $attribute = iterator_to_array($generator);
         if (count($attribute)) {
             $data = $this->serializer()->toArray($attribute);
         }

@@ -42,8 +42,6 @@ class IndexAction
      */
     public function __invoke(Request $request, IndexResponder $responder): Response
     {
-        return $responder->emit(
-            iterator_to_array($this->usecase->run($this->specification))
-        );
+        return $responder->emit($this->usecase->run($this->specification));
     }
 }
